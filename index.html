@@ -50,7 +50,7 @@ h1 { margin-top:20px; }
 <body>
 
 <h1>Clasifica las Propiedades</h1>
-<p>Arrastra cada tarjeta</p>
+<p>Arrastra cada tarjeta (no se puede cambiar después)</p>
 
 <div id="score">Puntos: 0</div>
 
@@ -71,7 +71,6 @@ h1 { margin-top:20px; }
 let score = 0;
 
 const propiedades = [
-  // Físicas
   {nombre:"Color", tipo:"fisicas"},
   {nombre:"Masa", tipo:"fisicas"},
   {nombre:"Volumen", tipo:"fisicas"},
@@ -88,7 +87,6 @@ const propiedades = [
   {nombre:"Maleabilidad", tipo:"fisicas"},
   {nombre:"Sublimación", tipo:"fisicas"},
 
-  // Químicas
   {nombre:"Inflamabilidad", tipo:"quimicas"},
   {nombre:"Oxidación", tipo:"quimicas"},
   {nombre:"Corrosión", tipo:"quimicas"},
@@ -117,17 +115,21 @@ function crearTarjetas(){
     div.draggable=true;
     div.textContent=p.nombre;
     div.dataset.tipo=p.tipo;
+    div.dataset.usada="false";
     div.ondragstart=drag;
     cont.appendChild(div);
   });
 }
 
-function allowDrop(ev){
-  ev.preventDefault();
-}
+function allowDrop(ev){ ev.preventDefault(); }
 
 function drag(ev){
-  ev.dataTransfer.setData("text", ev.target.id);
+  let card = ev.target;
+  if(card.dataset.usada === "true"){
+    ev.preventDefault(); // NO permitir mover
+    return;
+  }
+  ev.dataTransfer.setData("text", card.id);
 }
 
 function drop(ev){
@@ -135,6 +137,9 @@ function drop(ev){
 
   let data = ev.dataTransfer.getData("text");
   let card = document.getElementById(data);
+
+  // Si ya fue usada, no hacer nada
+  if(card.dataset.usada === "true") return;
 
   let tipoCorrecto = card.dataset.tipo;
   let zona = ev.currentTarget.id;
@@ -146,6 +151,10 @@ function drop(ev){
     card.classList.add("incorrect");
     score--;
   }
+
+  // MARCAR COMO USADA (no se puede mover más)
+  card.dataset.usada = "true";
+  card.draggable = false;
 
   document.getElementById("score").innerText = "Puntos: " + score;
   ev.currentTarget.appendChild(card);
