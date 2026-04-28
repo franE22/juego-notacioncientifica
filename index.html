@@ -1,5 +1,94 @@
 <!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Juego Propiedades de la Materia</title>
 
+<style>
+body { font-family: Arial; background:#f4f6f9; text-align:center; }
+h1 { margin-top:20px; }
+
+.container {
+  display:flex;
+  justify-content:space-around;
+  margin:20px;
+}
+
+.box {
+  width:40%;
+  min-height:250px;
+  padding:10px;
+  border-radius:10px;
+}
+
+#fisicas { background:#d0ebff; }
+#quimicas { background:#ffd6d6; }
+
+.cards {
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+}
+
+.card {
+  background:white;
+  padding:10px;
+  margin:5px;
+  border-radius:8px;
+  cursor:grab;
+  border:1px solid #ccc;
+}
+
+.correct { background:#c8f7c5 !important; }
+.incorrect { background:#f7c5c5 !important; }
+
+#score { font-size:20px; margin:10px; }
+</style>
+</head>
+
+<body>
+
+<h1>Clasifica las Propiedades</h1>
+<p>Arrastra cada tarjeta</p>
+
+<div id="score">Puntos: 0</div>
+
+<div class="container">
+  <div id="fisicas" class="box" ondrop="drop(event)" ondragover="allowDrop(event)">
+    <h2>Físicas</h2>
+  </div>
+
+  <div id="quimicas" class="box" ondrop="drop(event)" ondragover="allowDrop(event)">
+    <h2>Químicas</h2>
+  </div>
+</div>
+
+<div class="cards" id="cards"></div>
+
+<script>
+
+let score = 0;
+
+const propiedades = [
+  // Físicas
+  {nombre:"Color", tipo:"fisicas"},
+  {nombre:"Masa", tipo:"fisicas"},
+  {nombre:"Volumen", tipo:"fisicas"},
+  {nombre:"Densidad", tipo:"fisicas"},
+  {nombre:"Punto de ebullición", tipo:"fisicas"},
+  {nombre:"Punto de fusión", tipo:"fisicas"},
+  {nombre:"Solubilidad", tipo:"fisicas"},
+  {nombre:"Conductividad eléctrica", tipo:"fisicas"},
+  {nombre:"Conductividad térmica", tipo:"fisicas"},
+  {nombre:"Estado físico", tipo:"fisicas"},
+  {nombre:"Dureza", tipo:"fisicas"},
+  {nombre:"Elasticidad", tipo:"fisicas"},
+  {nombre:"Viscosidad", tipo:"fisicas"},
+  {nombre:"Maleabilidad", tipo:"fisicas"},
+  {nombre:"Sublimación", tipo:"fisicas"},
+
+  // Químicas
   {nombre:"Inflamabilidad", tipo:"quimicas"},
   {nombre:"Oxidación", tipo:"quimicas"},
   {nombre:"Corrosión", tipo:"quimicas"},
@@ -20,6 +109,7 @@
 function crearTarjetas(){
   const cont = document.getElementById("cards");
   propiedades.sort(()=>Math.random()-0.5);
+
   propiedades.forEach((p,i)=>{
     let div = document.createElement("div");
     div.className="card";
@@ -32,14 +122,20 @@ function crearTarjetas(){
   });
 }
 
-function allowDrop(ev){ ev.preventDefault(); }
+function allowDrop(ev){
+  ev.preventDefault();
+}
 
-function drag(ev){ ev.dataTransfer.setData("text", ev.target.id); }
+function drag(ev){
+  ev.dataTransfer.setData("text", ev.target.id);
+}
 
 function drop(ev){
   ev.preventDefault();
+
   let data = ev.dataTransfer.getData("text");
   let card = document.getElementById(data);
+
   let tipoCorrecto = card.dataset.tipo;
   let zona = ev.currentTarget.id;
 
@@ -56,6 +152,7 @@ function drop(ev){
 }
 
 crearTarjetas();
+
 </script>
 
 </body>
