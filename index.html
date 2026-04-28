@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+
+  {nombre:"Inflamabilidad", tipo:"quimicas"},
+  {nombre:"Oxidación", tipo:"quimicas"},
+  {nombre:"Corrosión", tipo:"quimicas"},
+  {nombre:"Reactividad con ácidos", tipo:"quimicas"},
+  {nombre:"Reactividad con bases", tipo:"quimicas"},
+  {nombre:"Combustión", tipo:"quimicas"},
+  {nombre:"Descomposición", tipo:"quimicas"},
+  {nombre:"Toxicidad", tipo:"quimicas"},
+  {nombre:"Fermentación", tipo:"quimicas"},
+  {nombre:"Oxidarse", tipo:"quimicas"},
+  {nombre:"Reducirse", tipo:"quimicas"},
+  {nombre:"Estabilidad química", tipo:"quimicas"},
+  {nombre:"Radioactividad", tipo:"quimicas"},
+  {nombre:"Formación de precipitado", tipo:"quimicas"},
+  {nombre:"Electronegatividad", tipo:"quimicas"}
+];
+
+function crearTarjetas(){
+  const cont = document.getElementById("cards");
+  propiedades.sort(()=>Math.random()-0.5);
+  propiedades.forEach((p,i)=>{
+    let div = document.createElement("div");
+    div.className="card";
+    div.id="c"+i;
+    div.draggable=true;
+    div.textContent=p.nombre;
+    div.dataset.tipo=p.tipo;
+    div.ondragstart=drag;
+    cont.appendChild(div);
+  });
+}
+
+function allowDrop(ev){ ev.preventDefault(); }
+
+function drag(ev){ ev.dataTransfer.setData("text", ev.target.id); }
+
+function drop(ev){
+  ev.preventDefault();
+  let data = ev.dataTransfer.getData("text");
+  let card = document.getElementById(data);
+  let tipoCorrecto = card.dataset.tipo;
+  let zona = ev.currentTarget.id;
+
+  if(tipoCorrecto === zona){
+    card.classList.add("correct");
+    score++;
+  } else {
+    card.classList.add("incorrect");
+    score--;
+  }
+
+  document.getElementById("score").innerText = "Puntos: " + score;
+  ev.currentTarget.appendChild(card);
+}
+
+crearTarjetas();
+</script>
+
+</body>
+</html>
