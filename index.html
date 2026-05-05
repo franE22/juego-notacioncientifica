@@ -2,28 +2,29 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Juego Propiedades de la Materia</title>
+<title>Estados de la Materia - Nivel Medio</title>
 
 <style>
 body { font-family: Arial; background:#f4f6f9; text-align:center; }
-h1 { margin-top:20px; }
 
 .container {
   display:flex;
+  flex-wrap:wrap;
   justify-content:space-around;
   margin:20px;
 }
 
 .box {
-  width:40%;
+  width:22%;
   min-height:250px;
   padding:10px;
   border-radius:10px;
 }
 
-#fisicas { background:#d0ebff; }
-#quimicas { background:#ffd6d6; }
+#solido { background:#d0ebff; }
+#liquido { background:#d4edda; }
+#gaseoso { background:#fff3cd; }
+#plasma { background:#ffd6d6; }
 
 .cards {
   display:flex;
@@ -49,18 +50,26 @@ h1 { margin-top:20px; }
 
 <body>
 
-<h1>Clasifica las Propiedades</h1>
-<p>Arrastra cada tarjeta (no se puede cambiar después)</p>
+<h1>Estados de la Materia (Nivel Medio)</h1>
+<p>Piensa bien antes de soltar 👀</p>
 
 <div id="score">Puntos: 0</div>
 
 <div class="container">
-  <div id="fisicas" class="box" ondrop="drop(event)" ondragover="allowDrop(event)">
-    <h2>Físicas</h2>
+  <div id="solido" class="box" ondrop="drop(event)" ondragover="allowDrop(event)">
+    <h2>Sólido</h2>
   </div>
 
-  <div id="quimicas" class="box" ondrop="drop(event)" ondragover="allowDrop(event)">
-    <h2>Químicas</h2>
+  <div id="liquido" class="box" ondrop="drop(event)" ondragover="allowDrop(event)">
+    <h2>Líquido</h2>
+  </div>
+
+  <div id="gaseoso" class="box" ondrop="drop(event)" ondragover="allowDrop(event)">
+    <h2>Gaseoso</h2>
+  </div>
+
+  <div id="plasma" class="box" ondrop="drop(event)" ondragover="allowDrop(event)">
+    <h2>Plasma</h2>
   </div>
 </div>
 
@@ -70,45 +79,47 @@ h1 { margin-top:20px; }
 
 let score = 0;
 
-const propiedades = [
-  {nombre:"Color", tipo:"fisicas"},
-  {nombre:"Masa", tipo:"fisicas"},
-  {nombre:"Volumen", tipo:"fisicas"},
-  {nombre:"Densidad", tipo:"fisicas"},
-  {nombre:"Punto de ebullición", tipo:"fisicas"},
-  {nombre:"Punto de fusión", tipo:"fisicas"},
-  {nombre:"Solubilidad", tipo:"fisicas"},
-  {nombre:"Conductividad eléctrica", tipo:"fisicas"},
-  {nombre:"Conductividad térmica", tipo:"fisicas"},
-  {nombre:"Estado físico", tipo:"fisicas"},
-  {nombre:"Dureza", tipo:"fisicas"},
-  {nombre:"Elasticidad", tipo:"fisicas"},
-  {nombre:"Viscosidad", tipo:"fisicas"},
-  {nombre:"Maleabilidad", tipo:"fisicas"},
-  {nombre:"Sublimación", tipo:"fisicas"},
+const ejemplos = [
 
-  {nombre:"Inflamabilidad", tipo:"quimicas"},
-  {nombre:"Oxidación", tipo:"quimicas"},
-  {nombre:"Corrosión", tipo:"quimicas"},
-  {nombre:"Reactividad con ácidos", tipo:"quimicas"},
-  {nombre:"Reactividad con bases", tipo:"quimicas"},
-  {nombre:"Combustión", tipo:"quimicas"},
-  {nombre:"Descomposición", tipo:"quimicas"},
-  {nombre:"Toxicidad", tipo:"quimicas"},
-  {nombre:"Fermentación", tipo:"quimicas"},
-  {nombre:"Oxidarse", tipo:"quimicas"},
-  {nombre:"Reducirse", tipo:"quimicas"},
-  {nombre:"Estabilidad química", tipo:"quimicas"},
-  {nombre:"Radioactividad", tipo:"quimicas"},
-  {nombre:"Formación de precipitado", tipo:"quimicas"},
-  {nombre:"Electronegatividad", tipo:"quimicas"}
+  // 🔵 SÓLIDOS (más complejos)
+  {nombre:"Diamante", tipo:"solido"},
+  {nombre:"Hielo seco (CO2 sólido)", tipo:"solido"},
+  {nombre:"Sal cristalizada", tipo:"solido"},
+  {nombre:"Cobre", tipo:"solido"},
+  {nombre:"Grafito", tipo:"solido"},
+  {nombre:"Azúcar sólida", tipo:"solido"},
+
+  // 🟢 LÍQUIDOS (más retadores)
+  {nombre:"Alcohol etílico", tipo:"liquido"},
+  {nombre:"Mercurio", tipo:"liquido"},
+  {nombre:"Ácido sulfúrico", tipo:"liquido"},
+  {nombre:"Agua destilada", tipo:"liquido"},
+  {nombre:"Aceite vegetal", tipo:"liquido"},
+  {nombre:"Benceno", tipo:"liquido"},
+
+  // 🟡 GASES (más conceptuales)
+  {nombre:"Nitrógeno", tipo:"gaseoso"},
+  {nombre:"Hidrógeno", tipo:"gaseoso"},
+  {nombre:"Ozono", tipo:"gaseoso"},
+  {nombre:"Metano", tipo:"gaseoso"},
+  {nombre:"Propano", tipo:"gaseoso"},
+  {nombre:"Gas butano", tipo:"gaseoso"},
+
+  // 🔴 PLASMA (nivel alto)
+  {nombre:"Sol", tipo:"plasma"},
+  {nombre:"Relámpago", tipo:"plasma"},
+  {nombre:"Aurora boreal", tipo:"plasma"},
+  {nombre:"Arco eléctrico", tipo:"plasma"},
+  {nombre:"Estrellas", tipo:"plasma"},
+  {nombre:"Lámpara fluorescente", tipo:"plasma"}
+
 ];
 
 function crearTarjetas(){
   const cont = document.getElementById("cards");
-  propiedades.sort(()=>Math.random()-0.5);
+  ejemplos.sort(()=>Math.random()-0.5);
 
-  propiedades.forEach((p,i)=>{
+  ejemplos.forEach((p,i)=>{
     let div = document.createElement("div");
     div.className="card";
     div.id="c"+i;
@@ -126,7 +137,7 @@ function allowDrop(ev){ ev.preventDefault(); }
 function drag(ev){
   let card = ev.target;
   if(card.dataset.usada === "true"){
-    ev.preventDefault(); // NO permitir mover
+    ev.preventDefault();
     return;
   }
   ev.dataTransfer.setData("text", card.id);
@@ -138,7 +149,6 @@ function drop(ev){
   let data = ev.dataTransfer.getData("text");
   let card = document.getElementById(data);
 
-  // Si ya fue usada, no hacer nada
   if(card.dataset.usada === "true") return;
 
   let tipoCorrecto = card.dataset.tipo;
@@ -152,7 +162,6 @@ function drop(ev){
     score--;
   }
 
-  // MARCAR COMO USADA (no se puede mover más)
   card.dataset.usada = "true";
   card.draggable = false;
 
