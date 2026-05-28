@@ -6,68 +6,66 @@
 <title>Trivia de Química</title>
 
 <style>
-    body{
-        font-family: Arial, sans-serif;
-        background:#e8f1ff;
-        text-align:center;
-        padding:20px;
-    }
 
-    .contenedor{
-        background:white;
-        max-width:700px;
-        margin:auto;
-        padding:25px;
-        border-radius:15px;
-        box-shadow:0 0 10px rgba(0,0,0,0.2);
-    }
+body{
+    font-family: Arial;
+    background:#dbeafe;
+    text-align:center;
+    padding:20px;
+}
 
-    h1{
-        color:#1d4ed8;
-    }
+.contenedor{
+    background:white;
+    max-width:700px;
+    margin:auto;
+    padding:20px;
+    border-radius:15px;
+    box-shadow:0px 0px 10px gray;
+}
 
-    .pregunta{
-        font-size:22px;
-        margin-bottom:20px;
-    }
+h1{
+    color:#1d4ed8;
+}
 
-    button{
-        display:block;
-        width:100%;
-        margin:10px 0;
-        padding:12px;
-        border:none;
-        border-radius:10px;
-        background:#2563eb;
-        color:white;
-        font-size:18px;
-        cursor:pointer;
-    }
+.pregunta{
+    font-size:24px;
+    margin-bottom:20px;
+}
 
-    button:hover{
-        background:#1e40af;
-    }
+button{
+    width:100%;
+    padding:12px;
+    margin:10px 0;
+    border:none;
+    border-radius:10px;
+    background:#2563eb;
+    color:white;
+    font-size:18px;
+    cursor:pointer;
+}
 
-    #resultado{
-        font-size:24px;
-        margin-top:20px;
-        color:green;
-    }
+button:hover{
+    background:#1e40af;
+}
+
+#resultado{
+    font-size:25px;
+    color:green;
+    margin-top:20px;
+}
+
 </style>
 </head>
+
 <body>
 
 <div class="contenedor">
 
 <h1>🧪 Trivia de Química</h1>
 
-<div id="quiz">
+<div id="pregunta" class="pregunta"></div>
 
-    <div class="pregunta" id="pregunta"></div>
-
-    <div id="opciones"></div>
-
-</div>
+<div id="opciones"></div>
 
 <div id="resultado"></div>
 
@@ -79,38 +77,150 @@ const preguntas = [
 
 {
 pregunta: "¿Cuál es el estado de la materia con forma y volumen definidos?",
-opciones: ["Líquido", "Gas", "Sólido", "Plasma"],
+opciones: ["Gas","Sólido","Plasma","Líquido"],
 respuesta: "Sólido"
 },
 
 {
-pregunta: "¿Qué método se utiliza para separar arena y agua?",
-opciones: ["Destilación", "Filtración", "Evaporación", "Imantación"],
+pregunta: "¿Qué método separa arena y agua?",
+opciones: ["Destilación","Evaporación","Filtración","Imantación"],
 respuesta: "Filtración"
 },
 
 {
-pregunta: "¿Cuál estado de la materia no tiene forma fija pero sí volumen fijo?",
-opciones: ["Gas", "Líquido", "Plasma", "Sólido"],
+pregunta: "¿Qué estado de la materia no tiene forma fija pero sí volumen fijo?",
+opciones: ["Gas","Plasma","Líquido","Sólido"],
 respuesta: "Líquido"
 },
 
 {
-pregunta: "¿Qué método separa líquidos con diferentes puntos de ebullición?",
-opciones: ["Decantación", "Tamizado", "Destilación", "Filtración"],
-respuesta: "Destilación"
+pregunta: "¿Qué método se usa para separar hierro y arena?",
+opciones: ["Filtración","Tamizado","Imantación","Destilación"],
+respuesta: "Imantación"
 },
 
 {
-pregunta: "¿Qué estado de la materia se expande completamente?",
-opciones: ["Gas", "Sólido", "Líquido", "Plasma"],
+pregunta: "¿Cuál es el estado de la materia que se expande completamente?",
+opciones: ["Plasma","Líquido","Gas","Sólido"],
 respuesta: "Gas"
 },
 
 {
-pregunta: "¿Qué método se usa para separar hierro y arena?",
-opciones: ["Imantación", "Filtración", "Destilación", "Evaporación"],
+pregunta: "¿Qué método se utiliza para separar sal y agua?",
+opciones: ["Tamizado","Filtración","Evaporación","Imantación"],
+respuesta: "Evaporación"
+},
+
+{
+pregunta: "¿Cómo se llama el cambio de sólido a líquido?",
+opciones: ["Evaporación","Fusión","Condensación","Solidificación"],
+respuesta: "Fusión"
+},
+
+{
+pregunta: "¿Qué método separa líquidos con diferentes puntos de ebullición?",
+opciones: ["Tamizado","Imantación","Filtración","Destilación"],
+respuesta: "Destilación"
+},
+
+{
+pregunta: "¿Cuál estado de la materia tiene partículas muy separadas?",
+opciones: ["Sólido","Gas","Líquido","Plasma"],
+respuesta: "Gas"
+},
+
+{
+pregunta: "¿Qué método se usa para separar piedras y arena?",
+opciones: ["Evaporación","Tamizado","Imantación","Destilación"],
+respuesta: "Tamizado"
+},
+
+{
+pregunta: "¿Cómo se llama el cambio de gas a líquido?",
+opciones: ["Sublimación","Evaporación","Condensación","Fusión"],
+respuesta: "Condensación"
+},
+
+{
+pregunta: "¿Qué estado de la materia tiene partículas muy ordenadas?",
+opciones: ["Líquido","Gas","Sólido","Plasma"],
+respuesta: "Sólido"
+},
+
+{
+pregunta: "¿Qué método utiliza un imán para separar materiales?",
+opciones: ["Filtración","Destilación","Tamizado","Imantación"],
 respuesta: "Imantación"
+},
+
+{
+pregunta: "¿Cuál es el cambio de líquido a gas?",
+opciones: ["Solidificación","Condensación","Fusión","Evaporación"],
+respuesta: "Evaporación"
 }
 
 ];
+
+let indice = 0;
+let puntos = 0;
+
+function mostrarPregunta(){
+
+    if(indice >= preguntas.length){
+
+        document.getElementById("pregunta").innerHTML =
+        "🎉 Juego terminado";
+
+        document.getElementById("opciones").innerHTML = "";
+
+        document.getElementById("resultado").innerHTML =
+        "🏆 Puntaje: " + puntos + " de " + preguntas.length;
+
+        return;
+    }
+
+    document.getElementById("pregunta").innerHTML =
+    preguntas[indice].pregunta;
+
+    let opcionesHTML = "";
+
+    for(let i = 0; i < preguntas[indice].opciones.length; i++){
+
+        opcionesHTML +=
+        '<button onclick="verificar(' + i + ')">' +
+        preguntas[indice].opciones[i] +
+        '</button>';
+
+    }
+
+    document.getElementById("opciones").innerHTML = opcionesHTML;
+}
+
+function verificar(i){
+
+    if(
+        preguntas[indice].opciones[i] ==
+        preguntas[indice].respuesta
+    ){
+
+        puntos++;
+
+        alert("✅ Correcto");
+
+    }else{
+
+        alert("❌ Incorrecto");
+
+    }
+
+    indice++;
+
+    mostrarPregunta();
+}
+
+mostrarPregunta();
+
+</script>
+
+</body>
+</html>
