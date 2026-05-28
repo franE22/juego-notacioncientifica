@@ -2,176 +2,115 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<title>Estados de la Materia - Nivel Medio</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trivia de Química</title>
 
 <style>
-body { font-family: Arial; background:#f4f6f9; text-align:center; }
+    body{
+        font-family: Arial, sans-serif;
+        background:#e8f1ff;
+        text-align:center;
+        padding:20px;
+    }
 
-.container {
-  display:flex;
-  flex-wrap:wrap;
-  justify-content:space-around;
-  margin:20px;
-}
+    .contenedor{
+        background:white;
+        max-width:700px;
+        margin:auto;
+        padding:25px;
+        border-radius:15px;
+        box-shadow:0 0 10px rgba(0,0,0,0.2);
+    }
 
-.box {
-  width:22%;
-  min-height:250px;
-  padding:10px;
-  border-radius:10px;
-}
+    h1{
+        color:#1d4ed8;
+    }
 
-#solido { background:#d0ebff; }
-#liquido { background:#d4edda; }
-#gaseoso { background:#fff3cd; }
-#plasma { background:#ffd6d6; }
+    .pregunta{
+        font-size:22px;
+        margin-bottom:20px;
+    }
 
-.cards {
-  display:flex;
-  flex-wrap:wrap;
-  justify-content:center;
-}
+    button{
+        display:block;
+        width:100%;
+        margin:10px 0;
+        padding:12px;
+        border:none;
+        border-radius:10px;
+        background:#2563eb;
+        color:white;
+        font-size:18px;
+        cursor:pointer;
+    }
 
-.card {
-  background:white;
-  padding:10px;
-  margin:5px;
-  border-radius:8px;
-  cursor:grab;
-  border:1px solid #ccc;
-}
+    button:hover{
+        background:#1e40af;
+    }
 
-.correct { background:#c8f7c5 !important; }
-.incorrect { background:#f7c5c5 !important; }
-
-#score { font-size:20px; margin:10px; }
+    #resultado{
+        font-size:24px;
+        margin-top:20px;
+        color:green;
+    }
 </style>
 </head>
-
 <body>
 
-<h1>Estados de la Materia (Nivel Medio)</h1>
-<p>Piensa bien antes de soltar 👀</p>
+<div class="contenedor">
 
-<div id="score">Puntos: 0</div>
+<h1>🧪 Trivia de Química</h1>
 
-<div class="container">
-  <div id="solido" class="box" ondrop="drop(event)" ondragover="allowDrop(event)">
-    <h2>Sólido</h2>
-  </div>
+<div id="quiz">
 
-  <div id="liquido" class="box" ondrop="drop(event)" ondragover="allowDrop(event)">
-    <h2>Líquido</h2>
-  </div>
+    <div class="pregunta" id="pregunta"></div>
 
-  <div id="gaseoso" class="box" ondrop="drop(event)" ondragover="allowDrop(event)">
-    <h2>Gaseoso</h2>
-  </div>
+    <div id="opciones"></div>
 
-  <div id="plasma" class="box" ondrop="drop(event)" ondragover="allowDrop(event)">
-    <h2>Plasma</h2>
-  </div>
 </div>
 
-<div class="cards" id="cards"></div>
+<div id="resultado"></div>
+
+</div>
 
 <script>
 
-let score = 0;
+const preguntas = [
 
-const ejemplos = [
+{
+pregunta: "¿Cuál es el estado de la materia con forma y volumen definidos?",
+opciones: ["Líquido", "Gas", "Sólido", "Plasma"],
+respuesta: "Sólido"
+},
 
-  // 🔵 SÓLIDOS (más complejos)
-  {nombre:"Diamante", tipo:"solido"},
-  {nombre:"Hielo seco (CO2 sólido)", tipo:"solido"},
-  {nombre:"Sal cristalizada", tipo:"solido"},
-  {nombre:"Cobre", tipo:"solido"},
-  {nombre:"Grafito", tipo:"solido"},
-  {nombre:"Azúcar sólida", tipo:"solido"},
+{
+pregunta: "¿Qué método se utiliza para separar arena y agua?",
+opciones: ["Destilación", "Filtración", "Evaporación", "Imantación"],
+respuesta: "Filtración"
+},
 
-  // 🟢 LÍQUIDOS (más retadores)
-  {nombre:"Alcohol etílico", tipo:"liquido"},
-  {nombre:"Mercurio", tipo:"liquido"},
-  {nombre:"Ácido sulfúrico", tipo:"liquido"},
-  {nombre:"Agua destilada", tipo:"liquido"},
-  {nombre:"Aceite vegetal", tipo:"liquido"},
-  {nombre:"Benceno", tipo:"liquido"},
+{
+pregunta: "¿Cuál estado de la materia no tiene forma fija pero sí volumen fijo?",
+opciones: ["Gas", "Líquido", "Plasma", "Sólido"],
+respuesta: "Líquido"
+},
 
-  // 🟡 GASES (más conceptuales)
-  {nombre:"Nitrógeno", tipo:"gaseoso"},
-  {nombre:"Hidrógeno", tipo:"gaseoso"},
-  {nombre:"Ozono", tipo:"gaseoso"},
-  {nombre:"Metano", tipo:"gaseoso"},
-  {nombre:"Propano", tipo:"gaseoso"},
-  {nombre:"Gas butano", tipo:"gaseoso"},
+{
+pregunta: "¿Qué método separa líquidos con diferentes puntos de ebullición?",
+opciones: ["Decantación", "Tamizado", "Destilación", "Filtración"],
+respuesta: "Destilación"
+},
 
-  // 🔴 PLASMA (nivel alto)
-  {nombre:"Sol", tipo:"plasma"},
-  {nombre:"Relámpago", tipo:"plasma"},
-  {nombre:"Aurora boreal", tipo:"plasma"},
-  {nombre:"Arco eléctrico", tipo:"plasma"},
-  {nombre:"Estrellas", tipo:"plasma"},
-  {nombre:"Lámpara fluorescente", tipo:"plasma"}
+{
+pregunta: "¿Qué estado de la materia se expande completamente?",
+opciones: ["Gas", "Sólido", "Líquido", "Plasma"],
+respuesta: "Gas"
+},
+
+{
+pregunta: "¿Qué método se usa para separar hierro y arena?",
+opciones: ["Imantación", "Filtración", "Destilación", "Evaporación"],
+respuesta: "Imantación"
+}
 
 ];
-
-function crearTarjetas(){
-  const cont = document.getElementById("cards");
-  ejemplos.sort(()=>Math.random()-0.5);
-
-  ejemplos.forEach((p,i)=>{
-    let div = document.createElement("div");
-    div.className="card";
-    div.id="c"+i;
-    div.draggable=true;
-    div.textContent=p.nombre;
-    div.dataset.tipo=p.tipo;
-    div.dataset.usada="false";
-    div.ondragstart=drag;
-    cont.appendChild(div);
-  });
-}
-
-function allowDrop(ev){ ev.preventDefault(); }
-
-function drag(ev){
-  let card = ev.target;
-  if(card.dataset.usada === "true"){
-    ev.preventDefault();
-    return;
-  }
-  ev.dataTransfer.setData("text", card.id);
-}
-
-function drop(ev){
-  ev.preventDefault();
-
-  let data = ev.dataTransfer.getData("text");
-  let card = document.getElementById(data);
-
-  if(card.dataset.usada === "true") return;
-
-  let tipoCorrecto = card.dataset.tipo;
-  let zona = ev.currentTarget.id;
-
-  if(tipoCorrecto === zona){
-    card.classList.add("correct");
-    score++;
-  } else {
-    card.classList.add("incorrect");
-    score--;
-  }
-
-  card.dataset.usada = "true";
-  card.draggable = false;
-
-  document.getElementById("score").innerText = "Puntos: " + score;
-  ev.currentTarget.appendChild(card);
-}
-
-crearTarjetas();
-
-</script>
-
-</body>
-</html>
