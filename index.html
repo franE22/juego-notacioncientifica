@@ -2,239 +2,80 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Worksheet: Concepto del Átomo</title>
-
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Trivia - Ley de la Conservación de la Materia</title>
 <style>
-body{
-    font-family: Arial, sans-serif;
-    background:#f4f6f9;
-    margin:20px;
-}
-
-.container{
-    max-width:900px;
-    margin:auto;
-    background:white;
-    padding:20px;
-    border-radius:10px;
-    box-shadow:0px 0px 10px rgba(0,0,0,0.2);
-}
-
-h1,h2{
-    color:#004080;
-}
-
-.section{
-    margin-bottom:30px;
-}
-
-button{
-    background:#004080;
-    color:white;
-    border:none;
-    padding:10px 15px;
-    cursor:pointer;
-    border-radius:5px;
-}
-
-button:hover{
-    background:#0066cc;
-}
-
-.correct{
-    color:green;
-    font-weight:bold;
-}
-
-.incorrect{
-    color:red;
-    font-weight:bold;
-}
-
-select{
-    padding:5px;
-}
-
-textarea{
-    width:100%;
-    height:100px;
-}
+body{font-family:Arial,sans-serif;background:#0f172a;margin:0;display:flex;justify-content:center}
+#app{max-width:760px;width:95%;background:#fff;margin:30px;padding:20px;border-radius:12px}
+h1{text-align:center;color:#1e3a8a}
+#progress{height:16px;background:#ddd;border-radius:8px;overflow:hidden}
+#bar{height:100%;width:0;background:#22c55e}
+button.opt{display:block;width:100%;margin:8px 0;padding:12px;border:0;border-radius:8px;background:#e5e7eb;cursor:pointer}
+button.opt:hover{background:#bfdbfe}
+.correct{background:#22c55e!important;color:#fff}
+.incorrect{background:#ef4444!important;color:#fff}
+#next{display:none;margin-top:15px;padding:10px 18px}
 </style>
 </head>
 <body>
-
-<div class="container">
-
-<h1>🧪 Worksheet: Concepto del Átomo</h1>
-<p><strong>Nombre:</strong> ______________________</p>
-
-<!-- CIERTO O FALSO -->
-<div class="section">
-<h2>1. Cierto o Falso</h2>
-
-<p>1. El átomo es la unidad básica de la materia.
-<select id="cf1">
-<option></option>
-<option>Cierto</option>
-<option>Falso</option>
-</select></p>
-
-<p>2. Los electrones tienen carga positiva.
-<select id="cf2">
-<option></option>
-<option>Cierto</option>
-<option>Falso</option>
-</select></p>
-
-<p>3. Los protones se encuentran en el núcleo.
-<select id="cf3">
-<option></option>
-<option>Cierto</option>
-<option>Falso</option>
-</select></p>
-
-<p>4. Los neutrones poseen carga negativa.
-<select id="cf4">
-<option></option>
-<option>Cierto</option>
-<option>Falso</option>
-</select></p>
+<div id="app">
+<h1>🧪 Trivia: Ley de la Conservación de la Materia</h1>
+<div id="progress"><div id="bar"></div></div>
+<p id="num"></p>
+<h3 id="q"></h3>
+<div id="opts"></div>
+<button id="next">Siguiente</button>
+<p id="result"></p>
 </div>
-
-<!-- COMPLETAR -->
-<div class="section">
-<h2>2. Completa los Espacios</h2>
-
-<p>
-El centro del átomo se llama
-<select id="c1">
-<option></option>
-<option>núcleo</option>
-<option>electrón</option>
-<option>órbita</option>
-</select>
-.
-</p>
-
-<p>
-Las partículas con carga negativa son los
-<select id="c2">
-<option></option>
-<option>protones</option>
-<option>electrones</option>
-<option>neutrones</option>
-</select>
-.
-</p>
-
-<p>
-Las partículas sin carga eléctrica son los
-<select id="c3">
-<option></option>
-<option>electrones</option>
-<option>protones</option>
-<option>neutrones</option>
-</select>
-.
-</p>
-</div>
-
-<!-- PAREO -->
-<div class="section">
-<h2>3. Pareo</h2>
-
-<p>Relaciona correctamente.</p>
-
-<table border="1" cellpadding="10">
-<tr>
-<th>Concepto</th>
-<th>Respuesta</th>
-</tr>
-
-<tr>
-<td>Protón</td>
-<td>
-<select id="p1">
-<option></option>
-<option>Carga positiva</option>
-<option>Carga negativa</option>
-<option>Sin carga</option>
-</select>
-</td>
-</tr>
-
-<tr>
-<td>Electrón</td>
-<td>
-<select id="p2">
-<option></option>
-<option>Carga positiva</option>
-<option>Carga negativa</option>
-<option>Sin carga</option>
-</select>
-</td>
-</tr>
-
-<tr>
-<td>Neutrón</td>
-<td>
-<select id="p3">
-<option></option>
-<option>Carga positiva</option>
-<option>Carga negativa</option>
-<option>Sin carga</option>
-</select>
-</td>
-</tr>
-</table>
-</div>
-
-<!-- REFLEXION -->
-<div class="section">
-<h2>4. Preguntas de Reflexión</h2>
-
-<p>¿Por qué consideras importante estudiar la estructura del átomo?</p>
-<textarea></textarea>
-
-<p>¿Cómo influye el conocimiento del átomo en los avances científicos y tecnológicos?</p>
-<textarea></textarea>
-</div>
-
-<button onclick="calificar()">Calificar</button>
-
-<h2 id="resultado"></h2>
-
-</div>
-
 <script>
-
-function calificar(){
-
-let puntos = 0;
-
-// Cierto o Falso
-if(document.getElementById("cf1").value=="Cierto") puntos++;
-if(document.getElementById("cf2").value=="Falso") puntos++;
-if(document.getElementById("cf3").value=="Cierto") puntos++;
-if(document.getElementById("cf4").value=="Falso") puntos++;
-
-// Completar
-if(document.getElementById("c1").value=="núcleo") puntos++;
-if(document.getElementById("c2").value=="electrones") puntos++;
-if(document.getElementById("c3").value=="neutrones") puntos++;
-
-// Pareo
-if(document.getElementById("p1").value=="Carga positiva") puntos++;
-if(document.getElementById("p2").value=="Carga negativa") puntos++;
-if(document.getElementById("p3").value=="Sin carga") puntos++;
-
-document.getElementById("resultado").innerHTML =
-"✅ Puntuación obtenida: " + puntos + " / 10";
-
+const quiz=[
+{q:"¿Quién formuló la Ley de la Conservación de la Materia?",a:[
+["Antoine Lavoisier",1],["John Dalton",0],["Isaac Newton",0],["Niels Bohr",0]]},
+{q:"La ley establece que...",a:[
+["La materia no se crea ni se destruye, solo se transforma.",1],["La materia desaparece.",0],["La materia se crea.",0],["La masa cambia siempre.",0]]},
+{q:"La masa de los reactivos es...",a:[
+["Igual a la de los productos.",1],["Mayor",0],["Menor",0],["Variable",0]]},
+{q:"¿Por qué se balancean las ecuaciones?",a:[
+["Para conservar el número de átomos.",1],["Para cambiar fórmulas.",0],["Para crear materia.",0],["Para hacerlas más cortas.",0]]},
+{q:"¿Cuál es una reacción química?",a:[
+["Quemar madera",1],["Romper vidrio",0],["Cortar papel",0],["Derretir hielo",0]]},
+{q:"¿Qué sucede con los átomos?",a:[
+["Se reorganizan.",1],["Desaparecen",0],["Se destruyen",0],["Se crean",0]]},
+{q:"¿Quién es el padre de la química moderna?",a:[
+["Antoine Lavoisier",1],["Rutherford",0],["Bohr",0],["Thomson",0]]},
+{q:"Objetivo del balanceo:",a:[
+["Igualar átomos en ambos lados.",1],["Cambiar productos",0],["Crear masa",0],["Eliminar reactivos",0]]},
+{q:"La ley es importante porque...",a:[
+["Permite cálculos correctos.",1],["Aumenta la masa",0],["Destruye átomos",0],["Cambia elementos",0]]},
+{q:"Durante una reacción la materia...",a:[
+["Se transforma.",1],["Desaparece",0],["Se crea",0],["Se reduce a energía",0]]},
+{q:"Los reactivos son...",a:[
+["Sustancias iniciales.",1],["Productos finales",0],["Catalizadores",0],["Desechos",0]]},
+{q:"Los productos son...",a:[
+["Sustancias formadas.",1],["Reactivos",0],["Átomos",0],["Elementos",0]]},
+{q:"Una ecuación no balanceada...",a:[
+["No representa correctamente la reacción.",1],["Es correcta siempre",0],["Tiene más productos",0],["No contiene átomos",0]]},
+{q:"La combustión es ejemplo de...",a:[
+["Reacción química",1],["Cambio físico",0],["Mezcla",0],["Elemento",0]]},
+{q:"¿Qué se conserva en una reacción química?",a:[
+["La masa total",1],["El volumen",0],["El color",0],["La temperatura",0]]}
+];
+let i=0,s=0;
+const q=document.getElementById('q'),opts=document.getElementById('opts'),num=document.getElementById('num'),bar=document.getElementById('bar'),next=document.getElementById('next'),res=document.getElementById('result');
+function shuffle(x){return x.sort(()=>Math.random()-0.5)}
+function load(){
+bar.style.width=(i/quiz.length*100)+'%';num.textContent=`Pregunta ${i+1} de ${quiz.length}`;q.textContent=quiz[i].q;opts.innerHTML='';next.style.display='none';
+shuffle([...quiz[i].a]).forEach(v=>{
+let b=document.createElement('button');b.className='opt';b.textContent=v[0];
+b.onclick=()=>{
+[...opts.children].forEach(x=>x.disabled=true);
+if(v[1]){b.classList.add('correct');s++;}else{b.classList.add('incorrect');[...opts.children].find(x=>quiz[i].a.find(y=>y[0]==x.textContent&&y[1]))?.classList.add('correct');}
+next.style.display='inline-block';
+};
+opts.appendChild(b);
+});
 }
-
+next.onclick=()=>{i++; if(i<quiz.length)load(); else{bar.style.width='100%';q.textContent='¡Trivia finalizada!';opts.innerHTML='';next.style.display='none';num.textContent='';res.innerHTML=`Obtuviste <b>${s}</b> de <b>${quiz.length}</b> respuestas correctas.<br><br><button onclick="location.reload()">Jugar nuevamente</button>`;}};
+load();
 </script>
-
-</body>
-</html>
+</body></html>
