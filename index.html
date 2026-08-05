@@ -1,80 +1,163 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Worksheet Interactivo</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Worksheet Interactivo - Fluidos</title>
+
+<style>
+
+body{
+    font-family:Arial, sans-serif;
+    background:#e8f4ff;
+    margin:0;
+    padding:30px;
+}
+
+.contenedor{
+    max-width:900px;
+    margin:auto;
+    background:white;
+    padding:30px;
+    border-radius:10px;
+    box-shadow:0 0 15px rgba(0,0,0,.2);
+}
+
+h1{
+    text-align:center;
+    color:#1565c0;
+}
+
+h2{
+    color:#0d47a1;
+    border-bottom:2px solid #1565c0;
+    padding-bottom:5px;
+}
+
+.pregunta{
+    margin-bottom:20px;
+}
+
+input[type=text]{
+    width:220px;
+    padding:8px;
+    margin-top:5px;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+table,th,td{
+    border:1px solid #999;
+}
+
+th{
+    background:#1565c0;
+    color:white;
+    padding:10px;
+}
+
+td{
+    padding:10px;
+}
+
+select{
+    padding:6px;
+}
+
+button{
+    margin-top:20px;
+    background:#1565c0;
+    color:white;
+    border:none;
+    padding:12px 25px;
+    border-radius:6px;
+    font-size:18px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#0d47a1;
+}
+
+#resultado{
+    margin-top:20px;
+    font-size:24px;
+    color:green;
+    font-weight:bold;
+}
+
+</style>
+
 </head>
 <body>
 
 <div class="contenedor">
 
 <h1>📘 Worksheet Interactivo</h1>
-<p>Nombre: _____________________________</p>
 
-<!-- CIERTO Y FALSO -->
-<section>
-<h2>I. Cierto o Falso (5 pts)</h2>
+<h3>Tema: ¿Qué es un fluido?</h3>
+
+<p><b>Nombre:</b> _____________________________</p>
+
+<hr>
+
+<h2>I. Cierto o Falso (5 puntos)</h2>
 
 <div class="pregunta">
-<p>1. HTML significa HyperText Markup Language.</p>
-<label><input type="radio" name="cf1" value="V"> Verdadero</label>
-<label><input type="radio" name="cf1" value="F"> Falso</label>
+1. Los líquidos y los gases son fluidos.<br>
+<input type="radio" name="cf1" value="V"> Verdadero
+<input type="radio" name="cf1" value="F"> Falso
 </div>
 
 <div class="pregunta">
-<p>2. CSS sirve para crear bases de datos.</p>
-<label><input type="radio" name="cf2" value="V"> Verdadero</label>
-<label><input type="radio" name="cf2" value="F"> Falso</label>
+2. Los líquidos tienen forma fija.<br>
+<input type="radio" name="cf2" value="V"> Verdadero
+<input type="radio" name="cf2" value="F"> Falso
 </div>
 
 <div class="pregunta">
-<p>3. JavaScript agrega interactividad a una página web.</p>
-<label><input type="radio" name="cf3" value="V"> Verdadero</label>
-<label><input type="radio" name="cf3" value="F"> Falso</label>
+3. El aire es un ejemplo de fluido.<br>
+<input type="radio" name="cf3" value="V"> Verdadero
+<input type="radio" name="cf3" value="F"> Falso
 </div>
 
 <div class="pregunta">
-<p>4. La etiqueta &lt;img&gt; inserta imágenes.</p>
-<label><input type="radio" name="cf4" value="V"> Verdadero</label>
-<label><input type="radio" name="cf4" value="F"> Falso</label>
+4. Los gases ocupan todo el recipiente que los contiene.<br>
+<input type="radio" name="cf4" value="V"> Verdadero
+<input type="radio" name="cf4" value="F"> Falso
 </div>
 
 <div class="pregunta">
-<p>5. JavaScript reemplaza completamente a HTML.</p>
-<label><input type="radio" name="cf5" value="V"> Verdadero</label>
-<label><input type="radio" name="cf5" value="F"> Falso</label>
+5. Los fluidos no tienen utilidad en la vida diaria.<br>
+<input type="radio" name="cf5" value="V"> Verdadero
+<input type="radio" name="cf5" value="F"> Falso
 </div>
 
-</section>
+<hr>
 
-<!-- LLENAR -->
-<section>
+<h2>II. Complete los espacios (5 puntos)</h2>
 
-<h2>II. Complete los espacios (5 pts)</h2>
+<p>1. Un __________________ es una sustancia que puede fluir.</p>
+<input type="text" id="ll1">
 
-<p>1. El lenguaje utilizado para dar estilo es
-<input type="text" id="ll1"></p>
+<p>2. El agua pertenece al estado __________________.</p>
+<input type="text" id="ll2">
 
-<p>2. La etiqueta para un párrafo es
-<input type="text" id="ll2"></p>
+<p>3. El aire pertenece al estado __________________.</p>
+<input type="text" id="ll3">
 
-<p>3. El lenguaje de programación del navegador es
-<input type="text" id="ll3"></p>
+<p>4. Los líquidos tienen volumen __________________.</p>
+<input type="text" id="ll4">
 
-<p>4. HTML significa HyperText Markup
-<input type="text" id="ll4"></p>
+<p>5. Los fluidos son importantes en la vida __________________.</p>
+<input type="text" id="ll5">
 
-<p>5. La etiqueta para un enlace es
-<input type="text" id="ll5"></p>
+<hr>
 
-</section>
-
-<!-- PAREO -->
-<section>
-
-<h2>III. Relacione correctamente (5 pts)</h2>
+<h2>III. Pareo (5 puntos)</h2>
 
 <table>
 
@@ -84,88 +167,129 @@
 </tr>
 
 <tr>
-<td>1. HTML</td>
+<td>Agua</td>
 <td>
 <select id="p1">
 <option></option>
-<option value="estructura">Estructura</option>
-<option value="estilo">Estilo</option>
-<option value="programacion">Programación</option>
-<option value="imagen">Imagen</option>
-<option value="video">Video</option>
+<option value="liquido">Líquido</option>
+<option value="gas">Gas</option>
+<option value="transporta">Transporta sustancias</option>
+<option value="respirar">Permite respirar</option>
+<option value="fluir">Puede fluir</option>
 </select>
 </td>
 </tr>
 
 <tr>
-<td>2. CSS</td>
+<td>Aire</td>
 <td>
 <select id="p2">
 <option></option>
-<option value="estructura">Estructura</option>
-<option value="estilo">Estilo</option>
-<option value="programacion">Programación</option>
-<option value="imagen">Imagen</option>
-<option value="video">Video</option>
+<option value="liquido">Líquido</option>
+<option value="gas">Gas</option>
+<option value="transporta">Transporta sustancias</option>
+<option value="respirar">Permite respirar</option>
+<option value="fluir">Puede fluir</option>
 </select>
 </td>
 </tr>
 
 <tr>
-<td>3. JavaScript</td>
+<td>Sangre</td>
 <td>
 <select id="p3">
 <option></option>
-<option value="estructura">Estructura</option>
-<option value="estilo">Estilo</option>
-<option value="programacion">Programación</option>
-<option value="imagen">Imagen</option>
-<option value="video">Video</option>
+<option value="liquido">Líquido</option>
+<option value="gas">Gas</option>
+<option value="transporta">Transporta sustancias</option>
+<option value="respirar">Permite respirar</option>
+<option value="fluir">Puede fluir</option>
 </select>
 </td>
 </tr>
 
 <tr>
-<td>4. img</td>
+<td>Oxígeno</td>
 <td>
 <select id="p4">
 <option></option>
-<option value="estructura">Estructura</option>
-<option value="estilo">Estilo</option>
-<option value="programacion">Programación</option>
-<option value="imagen">Imagen</option>
-<option value="video">Video</option>
+<option value="liquido">Líquido</option>
+<option value="gas">Gas</option>
+<option value="transporta">Transporta sustancias</option>
+<option value="respirar">Permite respirar</option>
+<option value="fluir">Puede fluir</option>
 </select>
 </td>
 </tr>
 
 <tr>
-<td>5. video</td>
+<td>Fluido</td>
 <td>
 <select id="p5">
 <option></option>
-<option value="estructura">Estructura</option>
-<option value="estilo">Estilo</option>
-<option value="programacion">Programación</option>
-<option value="imagen">Imagen</option>
-<option value="video">Video</option>
+<option value="liquido">Líquido</option>
+<option value="gas">Gas</option>
+<option value="transporta">Transporta sustancias</option>
+<option value="respirar">Permite respirar</option>
+<option value="fluir">Puede fluir</option>
 </select>
 </td>
 </tr>
 
 </table>
 
-</section>
+<center>
+<button onclick="calificar()">📊 Calificar Worksheet</button>
+</center>
 
-<br>
-
-<button onclick="calificar()">Calificar</button>
-
-<h2 id="resultado"></h2>
+<div id="resultado"></div>
 
 </div>
 
-<script src="script.js"></script>
+<script>
+
+function calificar(){
+
+let puntos=0;
+
+// Cierto y falso
+
+if(document.querySelector('input[name="cf1"]:checked')?.value=="V") puntos++;
+if(document.querySelector('input[name="cf2"]:checked')?.value=="F") puntos++;
+if(document.querySelector('input[name="cf3"]:checked')?.value=="V") puntos++;
+if(document.querySelector('input[name="cf4"]:checked')?.value=="V") puntos++;
+if(document.querySelector('input[name="cf5"]:checked')?.value=="F") puntos++;
+
+// Completar
+
+if(document.getElementById("ll1").value.trim().toLowerCase()=="fluido") puntos++;
+
+if(["líquido","liquido"].includes(document.getElementById("ll2").value.trim().toLowerCase())) puntos++;
+
+if(["gaseoso","gas"].includes(document.getElementById("ll3").value.trim().toLowerCase())) puntos++;
+
+if(document.getElementById("ll4").value.trim().toLowerCase()=="definido") puntos++;
+
+if(document.getElementById("ll5").value.trim().toLowerCase()=="diaria") puntos++;
+
+// Pareo
+
+if(document.getElementById("p1").value=="liquido") puntos++;
+if(document.getElementById("p2").value=="gas") puntos++;
+if(document.getElementById("p3").value=="transporta") puntos++;
+if(document.getElementById("p4").value=="respirar") puntos++;
+if(document.getElementById("p5").value=="fluir") puntos++;
+
+let porcentaje=(puntos/15*100).toFixed(0);
+
+document.getElementById("resultado").innerHTML=
+`<h2>Resultado</h2>
+<p><strong>Puntaje:</strong> ${puntos} / 15</p>
+<p><strong>Porcentaje:</strong> ${porcentaje}%</p>`;
+
+}
+
+</script>
 
 </body>
 </html>
