@@ -1,81 +1,171 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Trivia - Ley de la Conservación de la Materia</title>
-<style>
-body{font-family:Arial,sans-serif;background:#0f172a;margin:0;display:flex;justify-content:center}
-#app{max-width:760px;width:95%;background:#fff;margin:30px;padding:20px;border-radius:12px}
-h1{text-align:center;color:#1e3a8a}
-#progress{height:16px;background:#ddd;border-radius:8px;overflow:hidden}
-#bar{height:100%;width:0;background:#22c55e}
-button.opt{display:block;width:100%;margin:8px 0;padding:12px;border:0;border-radius:8px;background:#e5e7eb;cursor:pointer}
-button.opt:hover{background:#bfdbfe}
-.correct{background:#22c55e!important;color:#fff}
-.incorrect{background:#ef4444!important;color:#fff}
-#next{display:none;margin-top:15px;padding:10px 18px}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Worksheet Interactivo</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div id="app">
-<h1>🧪 Trivia: Ley de la Conservación de la Materia</h1>
-<div id="progress"><div id="bar"></div></div>
-<p id="num"></p>
-<h3 id="q"></h3>
-<div id="opts"></div>
-<button id="next">Siguiente</button>
-<p id="result"></p>
+
+<div class="contenedor">
+
+<h1>📘 Worksheet Interactivo</h1>
+<p>Nombre: _____________________________</p>
+
+<!-- CIERTO Y FALSO -->
+<section>
+<h2>I. Cierto o Falso (5 pts)</h2>
+
+<div class="pregunta">
+<p>1. HTML significa HyperText Markup Language.</p>
+<label><input type="radio" name="cf1" value="V"> Verdadero</label>
+<label><input type="radio" name="cf1" value="F"> Falso</label>
 </div>
-<script>
-const quiz=[
-{q:"¿Quién formuló la Ley de la Conservación de la Materia?",a:[
-["Antoine Lavoisier",1],["John Dalton",0],["Isaac Newton",0],["Niels Bohr",0]]},
-{q:"La ley establece que...",a:[
-["La materia no se crea ni se destruye, solo se transforma.",1],["La materia desaparece.",0],["La materia se crea.",0],["La masa cambia siempre.",0]]},
-{q:"La masa de los reactivos es...",a:[
-["Igual a la de los productos.",1],["Mayor",0],["Menor",0],["Variable",0]]},
-{q:"¿Por qué se balancean las ecuaciones?",a:[
-["Para conservar el número de átomos.",1],["Para cambiar fórmulas.",0],["Para crear materia.",0],["Para hacerlas más cortas.",0]]},
-{q:"¿Cuál es una reacción química?",a:[
-["Quemar madera",1],["Romper vidrio",0],["Cortar papel",0],["Derretir hielo",0]]},
-{q:"¿Qué sucede con los átomos?",a:[
-["Se reorganizan.",1],["Desaparecen",0],["Se destruyen",0],["Se crean",0]]},
-{q:"¿Quién es el padre de la química moderna?",a:[
-["Antoine Lavoisier",1],["Rutherford",0],["Bohr",0],["Thomson",0]]},
-{q:"Objetivo del balanceo:",a:[
-["Igualar átomos en ambos lados.",1],["Cambiar productos",0],["Crear masa",0],["Eliminar reactivos",0]]},
-{q:"La ley es importante porque...",a:[
-["Permite cálculos correctos.",1],["Aumenta la masa",0],["Destruye átomos",0],["Cambia elementos",0]]},
-{q:"Durante una reacción la materia...",a:[
-["Se transforma.",1],["Desaparece",0],["Se crea",0],["Se reduce a energía",0]]},
-{q:"Los reactivos son...",a:[
-["Sustancias iniciales.",1],["Productos finales",0],["Catalizadores",0],["Desechos",0]]},
-{q:"Los productos son...",a:[
-["Sustancias formadas.",1],["Reactivos",0],["Átomos",0],["Elementos",0]]},
-{q:"Una ecuación no balanceada...",a:[
-["No representa correctamente la reacción.",1],["Es correcta siempre",0],["Tiene más productos",0],["No contiene átomos",0]]},
-{q:"La combustión es ejemplo de...",a:[
-["Reacción química",1],["Cambio físico",0],["Mezcla",0],["Elemento",0]]},
-{q:"¿Qué se conserva en una reacción química?",a:[
-["La masa total",1],["El volumen",0],["El color",0],["La temperatura",0]]}
-];
-let i=0,s=0;
-const q=document.getElementById('q'),opts=document.getElementById('opts'),num=document.getElementById('num'),bar=document.getElementById('bar'),next=document.getElementById('next'),res=document.getElementById('result');
-function shuffle(x){return x.sort(()=>Math.random()-0.5)}
-function load(){
-bar.style.width=(i/quiz.length*100)+'%';num.textContent=`Pregunta ${i+1} de ${quiz.length}`;q.textContent=quiz[i].q;opts.innerHTML='';next.style.display='none';
-shuffle([...quiz[i].a]).forEach(v=>{
-let b=document.createElement('button');b.className='opt';b.textContent=v[0];
-b.onclick=()=>{
-[...opts.children].forEach(x=>x.disabled=true);
-if(v[1]){b.classList.add('correct');s++;}else{b.classList.add('incorrect');[...opts.children].find(x=>quiz[i].a.find(y=>y[0]==x.textContent&&y[1]))?.classList.add('correct');}
-next.style.display='inline-block';
-};
-opts.appendChild(b);
-});
-}
-next.onclick=()=>{i++; if(i<quiz.length)load(); else{bar.style.width='100%';q.textContent='¡Trivia finalizada!';opts.innerHTML='';next.style.display='none';num.textContent='';res.innerHTML=`Obtuviste <b>${s}</b> de <b>${quiz.length}</b> respuestas correctas.<br><br><button onclick="location.reload()">Jugar nuevamente</button>`;}};
-load();
-</script>
-</body></html>
+
+<div class="pregunta">
+<p>2. CSS sirve para crear bases de datos.</p>
+<label><input type="radio" name="cf2" value="V"> Verdadero</label>
+<label><input type="radio" name="cf2" value="F"> Falso</label>
+</div>
+
+<div class="pregunta">
+<p>3. JavaScript agrega interactividad a una página web.</p>
+<label><input type="radio" name="cf3" value="V"> Verdadero</label>
+<label><input type="radio" name="cf3" value="F"> Falso</label>
+</div>
+
+<div class="pregunta">
+<p>4. La etiqueta &lt;img&gt; inserta imágenes.</p>
+<label><input type="radio" name="cf4" value="V"> Verdadero</label>
+<label><input type="radio" name="cf4" value="F"> Falso</label>
+</div>
+
+<div class="pregunta">
+<p>5. JavaScript reemplaza completamente a HTML.</p>
+<label><input type="radio" name="cf5" value="V"> Verdadero</label>
+<label><input type="radio" name="cf5" value="F"> Falso</label>
+</div>
+
+</section>
+
+<!-- LLENAR -->
+<section>
+
+<h2>II. Complete los espacios (5 pts)</h2>
+
+<p>1. El lenguaje utilizado para dar estilo es
+<input type="text" id="ll1"></p>
+
+<p>2. La etiqueta para un párrafo es
+<input type="text" id="ll2"></p>
+
+<p>3. El lenguaje de programación del navegador es
+<input type="text" id="ll3"></p>
+
+<p>4. HTML significa HyperText Markup
+<input type="text" id="ll4"></p>
+
+<p>5. La etiqueta para un enlace es
+<input type="text" id="ll5"></p>
+
+</section>
+
+<!-- PAREO -->
+<section>
+
+<h2>III. Relacione correctamente (5 pts)</h2>
+
+<table>
+
+<tr>
+<th>Concepto</th>
+<th>Respuesta</th>
+</tr>
+
+<tr>
+<td>1. HTML</td>
+<td>
+<select id="p1">
+<option></option>
+<option value="estructura">Estructura</option>
+<option value="estilo">Estilo</option>
+<option value="programacion">Programación</option>
+<option value="imagen">Imagen</option>
+<option value="video">Video</option>
+</select>
+</td>
+</tr>
+
+<tr>
+<td>2. CSS</td>
+<td>
+<select id="p2">
+<option></option>
+<option value="estructura">Estructura</option>
+<option value="estilo">Estilo</option>
+<option value="programacion">Programación</option>
+<option value="imagen">Imagen</option>
+<option value="video">Video</option>
+</select>
+</td>
+</tr>
+
+<tr>
+<td>3. JavaScript</td>
+<td>
+<select id="p3">
+<option></option>
+<option value="estructura">Estructura</option>
+<option value="estilo">Estilo</option>
+<option value="programacion">Programación</option>
+<option value="imagen">Imagen</option>
+<option value="video">Video</option>
+</select>
+</td>
+</tr>
+
+<tr>
+<td>4. img</td>
+<td>
+<select id="p4">
+<option></option>
+<option value="estructura">Estructura</option>
+<option value="estilo">Estilo</option>
+<option value="programacion">Programación</option>
+<option value="imagen">Imagen</option>
+<option value="video">Video</option>
+</select>
+</td>
+</tr>
+
+<tr>
+<td>5. video</td>
+<td>
+<select id="p5">
+<option></option>
+<option value="estructura">Estructura</option>
+<option value="estilo">Estilo</option>
+<option value="programacion">Programación</option>
+<option value="imagen">Imagen</option>
+<option value="video">Video</option>
+</select>
+</td>
+</tr>
+
+</table>
+
+</section>
+
+<br>
+
+<button onclick="calificar()">Calificar</button>
+
+<h2 id="resultado"></h2>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
