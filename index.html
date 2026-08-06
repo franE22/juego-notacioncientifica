@@ -3,248 +3,578 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Worksheet Interactivo - Fluidos</title>
+<title>Worksheet Interactivo - Movimiento</title>
 
 <style>
 
-body{
-    font-family:Arial, sans-serif;
-    background:#e8f4ff;
+*{
     margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    background:#eef5ff;
     padding:30px;
 }
 
-.contenedor{
-    max-width:900px;
+.container{
+
+    max-width:1000px;
     margin:auto;
     background:white;
+    border-radius:15px;
     padding:30px;
-    border-radius:10px;
     box-shadow:0 0 15px rgba(0,0,0,.2);
+
 }
 
 h1{
+
     text-align:center;
-    color:#1565c0;
+    color:#0d47a1;
+    margin-bottom:10px;
+
 }
 
 h2{
-    color:#0d47a1;
-    border-bottom:2px solid #1565c0;
-    padding-bottom:5px;
+
+    color:#1565c0;
+    margin-top:30px;
+    margin-bottom:15px;
+    border-left:8px solid #1565c0;
+    padding-left:10px;
+
 }
 
-.pregunta{
-    margin-bottom:20px;
+p{
+
+    margin:10px 0;
+
 }
 
 input[type=text]{
-    width:220px;
+
+    width:250px;
     padding:8px;
-    margin-top:5px;
+    border:1px solid #999;
+    border-radius:5px;
+
 }
 
 table{
+
     width:100%;
     border-collapse:collapse;
+
 }
 
-table,th,td{
-    border:1px solid #999;
-}
+table th{
 
-th{
-    background:#1565c0;
+    background:#1976d2;
     color:white;
-    padding:10px;
+    padding:12px;
+
 }
 
-td{
+table td{
+
+    border:1px solid #ccc;
     padding:10px;
+
 }
 
 select{
-    padding:6px;
+
+    width:100%;
+    padding:8px;
+
 }
 
 button{
-    margin-top:20px;
-    background:#1565c0;
+
+    background:#1976d2;
     color:white;
     border:none;
-    padding:12px 25px;
-    border-radius:6px;
-    font-size:18px;
+    padding:15px 30px;
+    border-radius:8px;
     cursor:pointer;
+    font-size:18px;
+    margin-top:20px;
+
 }
 
 button:hover{
+
     background:#0d47a1;
+
 }
 
 #resultado{
-    margin-top:20px;
-    font-size:24px;
-    color:green;
+
+    margin-top:25px;
+    font-size:22px;
     font-weight:bold;
+    color:green;
+
+}
+
+hr{
+
+    margin:25px 0;
+
 }
 
 </style>
 
 </head>
+
 <body>
 
-<div class="contenedor">
+<div class="container">
 
-<h1>📘 Worksheet Interactivo</h1>
+<h1>📘 Worksheet Interactivo de Física</h1>
 
-<h3>Tema: ¿Qué es un fluido?</h3>
+<h3>Tema:</h3>
 
-<p><b>Nombre:</b> _____________________________</p>
+<p>
+✔ Concepto de movimiento<br>
+✔ Trayectoria, distancia y desplazamiento<br>
+✔ Rapidez y velocidad<br>
+✔ Aceleración
+</p>
+
+<br>
+
+<p><strong>Nombre:</strong> _______________________________________</p>
 
 <hr>
 
-<h2>I. Cierto o Falso (5 puntos)</h2>
+<h2>I. Cierto o Falso (8 puntos)</h2>
 
-<div class="pregunta">
-1. Los líquidos y los gases son fluidos.<br>
+<p>
+1. El movimiento ocurre cuando un objeto cambia de posición con respecto a un punto de referencia.
+</p>
+
 <input type="radio" name="cf1" value="V"> Verdadero
 <input type="radio" name="cf1" value="F"> Falso
-</div>
 
-<div class="pregunta">
-2. Los líquidos tienen forma fija.<br>
+<br><br>
+
+<p>
+2. La distancia siempre tiene dirección.
+</p>
+
 <input type="radio" name="cf2" value="V"> Verdadero
 <input type="radio" name="cf2" value="F"> Falso
-</div>
 
-<div class="pregunta">
-3. El aire es un ejemplo de fluido.<br>
+<br><br>
+
+<p>
+3. El desplazamiento representa el cambio de posición entre el inicio y el final del recorrido.
+</p>
+
 <input type="radio" name="cf3" value="V"> Verdadero
 <input type="radio" name="cf3" value="F"> Falso
-</div>
 
-<div class="pregunta">
-4. Los gases ocupan todo el recipiente que los contiene.<br>
+<br><br>
+
+<p>
+4. La rapidez es una magnitud escalar.
+</p>
+
 <input type="radio" name="cf4" value="V"> Verdadero
 <input type="radio" name="cf4" value="F"> Falso
-</div>
 
-<div class="pregunta">
-5. Los fluidos no tienen utilidad en la vida diaria.<br>
+<br><br>
+
+<p>
+5. La velocidad incluye rapidez y dirección.
+</p>
+
 <input type="radio" name="cf5" value="V"> Verdadero
 <input type="radio" name="cf5" value="F"> Falso
-</div>
+
+<br><br>
+
+<p>
+6. La aceleración indica cómo cambia la velocidad de un objeto.
+</p>
+
+<input type="radio" name="cf6" value="V"> Verdadero
+<input type="radio" name="cf6" value="F"> Falso
+
+<br><br>
+
+<p>
+7. Un objeto en reposo nunca puede comenzar a moverse.
+</p>
+
+<input type="radio" name="cf7" value="V"> Verdadero
+<input type="radio" name="cf7" value="F"> Falso
+
+<br><br>
+
+<p>
+8. Los automóviles, bicicletas y personas pueden presentar movimiento.
+</p>
+
+<input type="radio" name="cf8" value="V"> Verdadero
+<input type="radio" name="cf8" value="F"> Falso
 
 <hr>
 
-<h2>II. Complete los espacios (5 puntos)</h2>
+<h2>II. Complete los espacios (8 puntos)</h2>
 
-<p>1. Un __________________ es una sustancia que puede fluir.</p>
+<p>
+1. El __________________ es el cambio de posición de un objeto respecto a un punto de referencia.
+</p>
+
 <input type="text" id="ll1">
 
-<p>2. El agua pertenece al estado __________________.</p>
+<br><br>
+
+<p>
+2. La __________________ es el camino recorrido por un objeto.
+</p>
+
 <input type="text" id="ll2">
 
-<p>3. El aire pertenece al estado __________________.</p>
+<br><br>
+
+<p>
+3. La __________________ representa la longitud total recorrida.
+</p>
+
 <input type="text" id="ll3">
 
-<p>4. Los líquidos tienen volumen __________________.</p>
+<br><br>
+
+<p>
+4. El __________________ une el punto inicial con el punto final mediante una línea recta.
+</p>
+
 <input type="text" id="ll4">
 
-<p>5. Los fluidos son importantes en la vida __________________.</p>
+<br><br>
+
+<p>
+5. La __________________ indica qué tan rápido se mueve un objeto.
+</p>
+
 <input type="text" id="ll5">
+
+<br><br>
+
+<p>
+6. La __________________ considera rapidez y dirección.
+</p>
+
+<input type="text" id="ll6">
+
+<br><br>
+
+<p>
+7. La __________________ mide el cambio de velocidad por unidad de tiempo.
+</p>
+
+<input type="text" id="ll7">
+
+<br><br>
+
+<p>
+8. El movimiento puede ser observado usando un __________________ de referencia.
+</p>
+
+<input type="text" id="ll8">
 
 <hr>
 
-<h2>III. Pareo (5 puntos)</h2>
+<h2>III. Pareo (8 puntos)</h2>
 
 <table>
 
 <tr>
+
 <th>Concepto</th>
-<th>Respuesta</th>
+
+<th>Seleccione la respuesta correcta</th>
+
 </tr>
 
 <tr>
-<td>Agua</td>
+
+<td>1. Movimiento</td>
+
 <td>
+
 <select id="p1">
-<option></option>
-<option value="liquido">Líquido</option>
-<option value="gas">Gas</option>
-<option value="transporta">Transporta sustancias</option>
-<option value="respirar">Permite respirar</option>
-<option value="fluir">Puede fluir</option>
+
+<option value=""></option>
+
+<option value="cambio">Cambio de posición</option>
+
+<option value="camino">Camino recorrido</option>
+
+<option value="escalar">Magnitud escalar</option>
+
+<option value="direccion">Tiene dirección</option>
+
+<option value="cambioVel">Cambio de velocidad</option>
+
+<option value="recta">Línea recta</option>
+
+<option value="referencia">Punto de referencia</option>
+
+<option value="tiempo">Distancia por tiempo</option>
+
 </select>
+
 </td>
+
 </tr>
 
 <tr>
-<td>Aire</td>
+
+<td>2. Trayectoria</td>
+
 <td>
+
 <select id="p2">
-<option></option>
-<option value="liquido">Líquido</option>
-<option value="gas">Gas</option>
-<option value="transporta">Transporta sustancias</option>
-<option value="respirar">Permite respirar</option>
-<option value="fluir">Puede fluir</option>
+
+<option value=""></option>
+
+<option value="cambio">Cambio de posición</option>
+
+<option value="camino">Camino recorrido</option>
+
+<option value="escalar">Magnitud escalar</option>
+
+<option value="direccion">Tiene dirección</option>
+
+<option value="cambioVel">Cambio de velocidad</option>
+
+<option value="recta">Línea recta</option>
+
+<option value="referencia">Punto de referencia</option>
+
+<option value="tiempo">Distancia por tiempo</option>
+
 </select>
+
 </td>
+
 </tr>
 
 <tr>
-<td>Sangre</td>
+
+<td>3. Rapidez</td>
+
 <td>
+
 <select id="p3">
-<option></option>
-<option value="liquido">Líquido</option>
-<option value="gas">Gas</option>
-<option value="transporta">Transporta sustancias</option>
-<option value="respirar">Permite respirar</option>
-<option value="fluir">Puede fluir</option>
-</select>
-</td>
-</tr>
 
+<option value=""></option>
+
+<option value="cambio">Cambio de posición</option>
+
+<option value="camino">Camino recorrido</option>
+
+<option value="escalar">Magnitud escalar</option>
+
+<option value="direccion">Tiene dirección</option>
+
+<option value="cambioVel">Cambio de velocidad</option>
+
+<option value="recta">Línea recta</option>
+
+<option value="referencia">Punto de referencia</option>
+
+<option value="tiempo">Distancia por tiempo</option>
+
+</select>
+
+</td>
+
+</tr>
 <tr>
-<td>Oxígeno</td>
+
+<td>4. Velocidad</td>
+
 <td>
+
 <select id="p4">
-<option></option>
-<option value="liquido">Líquido</option>
-<option value="gas">Gas</option>
-<option value="transporta">Transporta sustancias</option>
-<option value="respirar">Permite respirar</option>
-<option value="fluir">Puede fluir</option>
+
+<option value=""></option>
+
+<option value="cambio">Cambio de posición</option>
+
+<option value="camino">Camino recorrido</option>
+
+<option value="escalar">Magnitud escalar</option>
+
+<option value="direccion">Tiene dirección</option>
+
+<option value="cambioVel">Cambio de velocidad</option>
+
+<option value="recta">Línea recta</option>
+
+<option value="referencia">Punto de referencia</option>
+
+<option value="tiempo">Distancia por tiempo</option>
+
 </select>
+
 </td>
+
 </tr>
 
 <tr>
-<td>Fluido</td>
+
+<td>5. Aceleración</td>
+
 <td>
+
 <select id="p5">
-<option></option>
-<option value="liquido">Líquido</option>
-<option value="gas">Gas</option>
-<option value="transporta">Transporta sustancias</option>
-<option value="respirar">Permite respirar</option>
-<option value="fluir">Puede fluir</option>
+
+<option value=""></option>
+
+<option value="cambio">Cambio de posición</option>
+
+<option value="camino">Camino recorrido</option>
+
+<option value="escalar">Magnitud escalar</option>
+
+<option value="direccion">Tiene dirección</option>
+
+<option value="cambioVel">Cambio de velocidad</option>
+
+<option value="recta">Línea recta</option>
+
+<option value="referencia">Punto de referencia</option>
+
+<option value="tiempo">Distancia por tiempo</option>
+
 </select>
+
 </td>
+
+</tr>
+
+<tr>
+
+<td>6. Desplazamiento</td>
+
+<td>
+
+<select id="p6">
+
+<option value=""></option>
+
+<option value="cambio">Cambio de posición</option>
+
+<option value="camino">Camino recorrido</option>
+
+<option value="escalar">Magnitud escalar</option>
+
+<option value="direccion">Tiene dirección</option>
+
+<option value="cambioVel">Cambio de velocidad</option>
+
+<option value="recta">Línea recta entre el inicio y el final</option>
+
+<option value="referencia">Punto de referencia</option>
+
+<option value="tiempo">Distancia por tiempo</option>
+
+</select>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td>7. Punto de referencia</td>
+
+<td>
+
+<select id="p7">
+
+<option value=""></option>
+
+<option value="cambio">Cambio de posición</option>
+
+<option value="camino">Camino recorrido</option>
+
+<option value="escalar">Magnitud escalar</option>
+
+<option value="direccion">Tiene dirección</option>
+
+<option value="cambioVel">Cambio de velocidad</option>
+
+<option value="recta">Línea recta</option>
+
+<option value="referencia">Permite determinar el movimiento</option>
+
+<option value="tiempo">Distancia por tiempo</option>
+
+</select>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td>8. Rapidez</td>
+
+<td>
+
+<select id="p8">
+
+<option value=""></option>
+
+<option value="cambio">Cambio de posición</option>
+
+<option value="camino">Camino recorrido</option>
+
+<option value="escalar">Magnitud escalar</option>
+
+<option value="direccion">Tiene dirección</option>
+
+<option value="cambioVel">Cambio de velocidad</option>
+
+<option value="recta">Línea recta</option>
+
+<option value="referencia">Punto de referencia</option>
+
+<option value="tiempo">Distancia recorrida entre el tiempo empleado</option>
+
+</select>
+
+</td>
+
 </tr>
 
 </table>
 
+<br><br>
+
 <center>
-<button onclick="calificar()">📊 Calificar Worksheet</button>
+
+<button onclick="calificar()">
+📊 Calificar
+</button>
+
+<button onclick="location.reload()">
+🔄 Reiniciar
+</button>
+
 </center>
 
 <div id="resultado"></div>
-
-</div>
 
 <script>
 
@@ -252,44 +582,115 @@ function calificar(){
 
 let puntos=0;
 
-// Cierto y falso
+// ========= CIERTO Y FALSO =========
 
 if(document.querySelector('input[name="cf1"]:checked')?.value=="V") puntos++;
+
 if(document.querySelector('input[name="cf2"]:checked')?.value=="F") puntos++;
+
 if(document.querySelector('input[name="cf3"]:checked')?.value=="V") puntos++;
+
 if(document.querySelector('input[name="cf4"]:checked')?.value=="V") puntos++;
-if(document.querySelector('input[name="cf5"]:checked')?.value=="F") puntos++;
 
-// Completar
+if(document.querySelector('input[name="cf5"]:checked')?.value=="V") puntos++;
 
-if(document.getElementById("ll1").value.trim().toLowerCase()=="fluido") puntos++;
+if(document.querySelector('input[name="cf6"]:checked')?.value=="V") puntos++;
 
-if(["líquido","liquido"].includes(document.getElementById("ll2").value.trim().toLowerCase())) puntos++;
+if(document.querySelector('input[name="cf7"]:checked')?.value=="F") puntos++;
 
-if(["gaseoso","gas"].includes(document.getElementById("ll3").value.trim().toLowerCase())) puntos++;
+if(document.querySelector('input[name="cf8"]:checked')?.value=="V") puntos++;
 
-if(document.getElementById("ll4").value.trim().toLowerCase()=="definido") puntos++;
+// ========= COMPLETAR =========
 
-if(document.getElementById("ll5").value.trim().toLowerCase()=="diaria") puntos++;
+if(document.getElementById("ll1").value.trim().toLowerCase()=="movimiento") puntos++;
 
-// Pareo
+if(document.getElementById("ll2").value.trim().toLowerCase()=="trayectoria") puntos++;
 
-if(document.getElementById("p1").value=="liquido") puntos++;
-if(document.getElementById("p2").value=="gas") puntos++;
-if(document.getElementById("p3").value=="transporta") puntos++;
-if(document.getElementById("p4").value=="respirar") puntos++;
-if(document.getElementById("p5").value=="fluir") puntos++;
+if(document.getElementById("ll3").value.trim().toLowerCase()=="distancia") puntos++;
 
-let porcentaje=(puntos/15*100).toFixed(0);
+if(document.getElementById("ll4").value.trim().toLowerCase()=="desplazamiento") puntos++;
 
-document.getElementById("resultado").innerHTML=
-`<h2>Resultado</h2>
-<p><strong>Puntaje:</strong> ${puntos} / 15</p>
-<p><strong>Porcentaje:</strong> ${porcentaje}%</p>`;
+if(document.getElementById("ll5").value.trim().toLowerCase()=="rapidez") puntos++;
+
+if(document.getElementById("ll6").value.trim().toLowerCase()=="velocidad") puntos++;
+
+if(document.getElementById("ll7").value.trim().toLowerCase()=="aceleración" ||
+document.getElementById("ll7").value.trim().toLowerCase()=="aceleracion") puntos++;
+
+if(document.getElementById("ll8").value.trim().toLowerCase()=="punto") puntos++;
+// ========= PAREO =========
+
+if(document.getElementById("p1").value=="cambio") puntos++;
+
+if(document.getElementById("p2").value=="camino") puntos++;
+
+if(document.getElementById("p3").value=="escalar") puntos++;
+
+if(document.getElementById("p4").value=="direccion") puntos++;
+
+if(document.getElementById("p5").value=="cambioVel") puntos++;
+
+if(document.getElementById("p6").value=="recta") puntos++;
+
+if(document.getElementById("p7").value=="referencia") puntos++;
+
+if(document.getElementById("p8").value=="tiempo") puntos++;
+
+// ========= RESULTADO =========
+
+let porcentaje=((puntos/24)*100).toFixed(1);
+
+let mensaje="";
+
+if(porcentaje>=90){
+
+mensaje="🏆 ¡Excelente trabajo! Dominas muy bien el tema.";
+
+}
+
+else if(porcentaje>=80){
+
+mensaje="🎉 ¡Muy bien! Sigue así.";
+
+}
+
+else if(porcentaje>=70){
+
+mensaje="👍 Buen trabajo. Repasa algunos conceptos.";
+
+}
+
+else if(porcentaje>=60){
+
+mensaje="🙂 Aprobado. Es recomendable practicar más.";
+
+}
+
+else{
+
+mensaje="📚 Debes estudiar nuevamente el tema e intentarlo otra vez.";
+
+}
+
+document.getElementById("resultado").innerHTML=`
+
+<hr>
+
+<h2>Resultado del Worksheet</h2>
+
+<p><strong>Puntaje:</strong> ${puntos} / 24</p>
+
+<p><strong>Porcentaje:</strong> ${porcentaje}%</p>
+
+<p>${mensaje}</p>
+
+`;
 
 }
 
 </script>
+
+</div>
 
 </body>
 </html>
