@@ -1,0 +1,177 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #eef3f8;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 900px;
+    margin: auto;
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.12);
+}
+
+header {
+    text-align: center;
+    border-bottom: 3px solid #2c6e9b;
+    padding-bottom: 15px;
+    margin-bottom: 25px;
+}
+
+header h1 {
+    color: #1f4e79;
+    margin-bottom: 5px;
+}
+
+header h2 {
+    color: #333;
+}
+
+.student-info {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+.student-info label {
+    font-weight: bold;
+}
+
+input,
+select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 6px;
+    border: 1px solid #bbb;
+    border-radius: 6px;
+    font-size: 15px;
+}
+
+.instructions {
+    background: #e8f3fa;
+    padding: 15px;
+    border-left: 5px solid #2c6e9b;
+    margin-bottom: 25px;
+}
+
+section {
+    margin-top: 30px;
+}
+
+section h2 {
+    color: #1f4e79;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 8px;
+}
+
+.instruction {
+    font-style: italic;
+    color: #555;
+}
+
+.question {
+    background: #f8f9fa;
+    padding: 15px;
+    margin: 12px 0;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+}
+
+.question p {
+    margin-top: 0;
+    line-height: 1.5;
+}
+
+.question select {
+    max-width: 250px;
+}
+
+.question input[type="text"] {
+    max-width: 500px;
+}
+
+.matching {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.column h3 {
+    color: #1f4e79;
+}
+
+.column p {
+    padding: 8px;
+    background: white;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+.column select {
+    width: 100px;
+    margin-bottom: 5px;
+}
+
+button {
+    display: block;
+    width: 100%;
+    margin-top: 35px;
+    padding: 15px;
+    border: none;
+    border-radius: 8px;
+    background: #1f4e79;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #163a5c;
+}
+
+#resultado {
+    margin-top: 25px;
+    padding: 20px;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 10px;
+    display: none;
+}
+
+.correcto {
+    background: #d9f2d9;
+    color: #216721;
+}
+
+.reprobado {
+    background: #f8d7da;
+    color: #842029;
+}
+
+@media (max-width: 700px) {
+
+    .student-info {
+        grid-template-columns: 1fr;
+    }
+
+    .matching {
+        grid-template-columns: 1fr;
+    }
+
+    .container {
+        padding: 15px;
+    }
+}
