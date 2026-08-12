@@ -1,1 +1,225 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Worksheet - Trayectoria, Distancia y Desplazamiento</title>
+    <link rel="stylesheet" href="style.css">
+</head>
 
+<body>
+
+<div class="container">
+
+    <header>
+        <h1>Worksheet de Física</h1>
+        <h2>Trayectoria, Distancia y Desplazamiento</h2>
+        <p><strong>Nivel:</strong> 10.º grado</p>
+    </header>
+
+    <div class="student-info">
+        <label>Nombre del estudiante:</label>
+        <input type="text" id="nombre" placeholder="Escribe tu nombre">
+
+        <label>Fecha:</label>
+        <input type="date" id="fecha">
+    </div>
+
+    <div class="instructions">
+        <h3>Indicaciones</h3>
+        <p>
+            Lee cuidadosamente cada pregunta y selecciona o escribe la respuesta correcta.
+            Al finalizar, presiona el botón <strong>"Calificar Worksheet"</strong>.
+        </p>
+    </div>
+
+    <!-- CIERTO Y FALSO -->
+    <section>
+        <h2>Parte I – Cierto o Falso</h2>
+        <p class="instruction">
+            Escribe o selecciona <strong>Cierto</strong> o <strong>Falso</strong>.
+        </p>
+
+        <div class="question">
+            <p>1. La trayectoria es el camino que sigue un objeto durante su movimiento.</p>
+            <select id="cf1">
+                <option value="">Selecciona</option>
+                <option value="C">Cierto</option>
+                <option value="F">Falso</option>
+            </select>
+        </div>
+
+        <div class="question">
+            <p>2. La distancia recorrida siempre representa una línea recta entre el punto inicial y final.</p>
+            <select id="cf2">
+                <option value="">Selecciona</option>
+                <option value="C">Cierto</option>
+                <option value="F">Falso</option>
+            </select>
+        </div>
+
+        <div class="question">
+            <p>3. El desplazamiento tiene en cuenta la posición inicial y la posición final de un objeto.</p>
+            <select id="cf3">
+                <option value="">Selecciona</option>
+                <option value="C">Cierto</option>
+                <option value="F">Falso</option>
+            </select>
+        </div>
+
+        <div class="question">
+            <p>4. Si una persona sale de un lugar, recorre 100 m y regresa al mismo punto, su desplazamiento es cero.</p>
+            <select id="cf4">
+                <option value="">Selecciona</option>
+                <option value="C">Cierto</option>
+                <option value="F">Falso</option>
+            </select>
+        </div>
+
+        <div class="question">
+            <p>5. La distancia recorrida puede ser mayor que la magnitud del desplazamiento.</p>
+            <select id="cf5">
+                <option value="">Selecciona</option>
+                <option value="C">Cierto</option>
+                <option value="F">Falso</option>
+            </select>
+        </div>
+    </section>
+
+
+    <!-- LLENAR ESPACIOS -->
+    <section>
+        <h2>Parte II – Completa los espacios</h2>
+        <p class="instruction">
+            Completa cada oración con el concepto correcto.
+        </p>
+
+        <div class="question">
+            <p>
+                1. La __________ es el camino o línea que sigue un cuerpo durante su movimiento.
+            </p>
+            <input type="text" id="fill1">
+        </div>
+
+        <div class="question">
+            <p>
+                2. La __________ corresponde a la longitud total del camino recorrido por un objeto.
+            </p>
+            <input type="text" id="fill2">
+        </div>
+
+        <div class="question">
+            <p>
+                3. El __________ indica el cambio de posición desde el punto inicial hasta el punto final.
+            </p>
+            <input type="text" id="fill3">
+        </div>
+
+        <div class="question">
+            <p>
+                4. La distancia es una magnitud __________ porque solo tiene valor numérico.
+            </p>
+            <input type="text" id="fill4">
+        </div>
+
+        <div class="question">
+            <p>
+                5. El desplazamiento es una magnitud __________ porque posee magnitud y dirección.
+            </p>
+            <input type="text" id="fill5">
+        </div>
+    </section>
+
+
+    <!-- PAREO -->
+    <section>
+        <h2>Parte III – Pareo</h2>
+        <p class="instruction">
+            Relaciona cada concepto de la columna A con su definición correcta de la columna B.
+        </p>
+
+        <div class="matching">
+
+            <div class="column">
+                <h3>Columna A</h3>
+
+                <p>1. Trayectoria</p>
+                <p>2. Distancia</p>
+                <p>3. Desplazamiento</p>
+                <p>4. Punto inicial</p>
+                <p>5. Punto final</p>
+            </div>
+
+            <div class="column">
+                <h3>Columna B</h3>
+
+                <select id="match1">
+                    <option value="">1 →</option>
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                    <option value="D">D</option>
+                    <option value="E">E</option>
+                </select>
+
+                <p>A. Lugar donde termina el movimiento.</p>
+
+                <select id="match2">
+                    <option value="">2 →</option>
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                    <option value="D">D</option>
+                    <option value="E">E</option>
+                </select>
+
+                <p>B. Camino seguido por un objeto durante su movimiento.</p>
+
+                <select id="match3">
+                    <option value="">3 →</option>
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                    <option value="D">D</option>
+                    <option value="E">E</option>
+                </select>
+
+                <p>C. Longitud total del camino recorrido.</p>
+
+                <select id="match4">
+                    <option value="">4 →</option>
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                    <option value="D">D</option>
+                    <option value="E">E</option>
+                </select>
+
+                <p>D. Lugar desde donde comienza el movimiento.</p>
+
+                <select id="match5">
+                    <option value="">5 →</option>
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                    <option value="D">D</option>
+                    <option value="E">E</option>
+                </select>
+
+                <p>E. Cambio de posición entre el inicio y el final.</p>
+
+            </div>
+        </div>
+    </section>
+
+
+    <button onclick="calificar()">Calificar Worksheet</button>
+
+    <div id="resultado"></div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
